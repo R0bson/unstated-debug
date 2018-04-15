@@ -2,11 +2,10 @@
 const {detailedDiff} = require('deep-object-diff');
 
 module.exports = options => {
-	options = {
+	options = Object.assign({}, {
 		isEnabled: true,
 		logStateChanges: true,
-		...options
-	};
+	}, options);
 
 	return Container => {
 		if (!options.isEnabled) {
